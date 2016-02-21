@@ -1,29 +1,23 @@
 var request = require('request');
 
+var version = "v1";
+var url = "https://panel.cloudatcost.com/api/" + this.version + '/';
+
 /*
- * Cloud At Cost API wrapper.
+ * Cloud@Cost API client.
  *
  * @param key The API key to access the C@C API with
  * @param login The email to allows to use C@C API
  */
-function CatC(key, login) {
-  this.version = 'v1';
-  this.url = 'https://panel.cloudatcost.com/api/'+this.version+'/';
-  if(!key) {
-    throw new Error('You have to provide an API key for this to work.');
-  }
-  this.key = key;
+function CloudAtCost(key, login) {
+    if(!key)
+        throw new Error("API key is required");
+    if(!login)
+        throw new Error("Email is required");
 
-  if(!login) {
-    throw new Error('You have to provide a login email address');
-  }
-  this.login = login;
+    this.key = key;
+    this.login = login;
 }
-
-var toQS = params =>
-    '?' + Object.keys(params)
-            .map(param => param + '=' + params[param])
-            .join('&');
 
 CatC.prototype.execute = function(route, params, cb) {
     if(typeof params === "function")

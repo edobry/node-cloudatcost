@@ -1,6 +1,6 @@
-#node-catc
+#node-cloudatcost
 
-A node.js wrapper for the Cloud At Cost API.
+node Cloud@Cost API client
 
 API Version: `v1`
 
@@ -8,33 +8,34 @@ API Version: `v1`
 https://github.com/cloudatcost/api
 
 ## Installation
-`npm install node-catc`
+`npm install node-cloudatcost`
 
 ## Example
 
 ```js
-var CatC = require('node-catc');
+var CatC = require("node-cloudatcost");
 
-var api = new CatC('APIKEY', 'LOGINEMAIL');
+var api = new CatC("key", "email");
 
 api.listServers(function(err, res) {
-  if(!err) {
-    for(var i in res.data) {
-      console.log(res.data[i]);
-    }
-  }
+    if(err)
+        throw new Error(JSON.stringify(err));
+
+    res.data.forEach(server =>
+        console.log(JSON.stringify(server))
+    );
 });
 
 api.listTemplates(function(err, res) {
-  if(!err) {
-    for(var i in res.data) {
-      console.log(res.data[i]);
-    }
-  }
+    if(err)
+        throw new Error(JSON.stringify(err));
+
+    res.data.forEach(template =>
+        console.log(JSON.stringify(template))
+    );
 });
 ```
 ## License
-node-catc is licensed under MIT License. (See LICENSE)
+`node-cloudatcost` uses the MIT License. (See `LICENSE`)
 
-## TODO
-* Tests
+This means you can do whatever you want with this code, as long as you include the same license.

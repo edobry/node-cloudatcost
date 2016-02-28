@@ -1,34 +1,29 @@
 {
-  "name": "node-catc",
-  "version": "1.0.6",
-  "description": "Node Cloud At Cost API wrapper",
-  "main": "index.js",
-  "directories": {
-    "test": "test"
-  },
-  "dependencies": {
-    "request": "^2.53.0"
-  },
-  "devDependencies": {},
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/dlion/node-catc"
-  },
-  "keywords": [
-    "cloud",
-    "at",
-    "cost",
-    "catc",
-    "wrapper",
-    "api"
-  ],
-  "author": "Domenico Luciani - DLion - (domenicoleoneluciani@gmail.com)",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/dlion/node-catc/issues"
-  },
-  "homepage": "https://github.com/dlion/node-catc"
+    "name": "node-cloudatcost",
+    "version": "2.0.0",
+    "description": "node Cloud@Cost API client",
+    "main": "index.js",
+    "dependencies": {
+        "request": "^2.53.0"
+    },
+    "devDependencies": {},
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/edobry/node-cloudatcost"
+    },
+    "keywords": [
+        "cloud",
+        "at",
+        "cost",
+        "catc",
+        "cloudatcost",
+        "cloud@cost",
+        "api"
+    ],
+    "author": "edobry (eugene@dobry.me)",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/edobry/node-cloudatcost/issues"
+    },
+    "homepage": "https://github.com/edobry/node-cloudatcost"
 }

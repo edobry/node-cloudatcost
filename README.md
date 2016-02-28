@@ -8,14 +8,14 @@ API Version: `v1`
 https://github.com/cloudatcost/api
 
 ## Installation
-`npm install node-cloudatcost`
+`npm install cloudatcost`
 
 ## Example
 
 ```js
-var CatC = require("node-cloudatcost");
+var CloudAtCost = require("cloudatcost");
 
-var api = new CatC("key", "email");
+var api = new CloudAtCost("key", "email");
 
 api.listServers(function(err, res) {
     if(err)

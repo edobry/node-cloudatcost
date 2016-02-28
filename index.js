@@ -19,7 +19,7 @@ function CloudAtCost(key, login) {
     this.login = login;
 }
 
-CatC.prototype.execute = function(route, params, cb) {
+CloudAtCost.prototype.execute = function(route, params, cb) {
     if(typeof params === "function")
         cb = params;
 
@@ -76,7 +76,7 @@ CatC.prototype.execute = function(route, params, cb) {
  *
  * @param cb Callback function to call after the request
  */
-CatC.prototype.listServers = function(cb) {
+CloudAtCost.prototype.listServers = function(cb) {
   this.execute('listservers', cb);
 };
 
@@ -86,7 +86,7 @@ CatC.prototype.listServers = function(cb) {
  *
  * @param cb Callback function to call after the request
  */
-CatC.prototype.listTemplates = function(cb) {
+CloudAtCost.prototype.listTemplates = function(cb) {
   this.execute('listtemplates', cb);
 };
 
@@ -96,7 +96,7 @@ CatC.prototype.listTemplates = function(cb) {
  *
  * @param cb Callback function to call after the request
  */
-CatC.prototype.listTasks = function(cb) {
+CloudAtCost.prototype.listTasks = function(cb) {
   this.execute('listtasks', cb);
 };
 
@@ -108,7 +108,7 @@ CatC.prototype.listTasks = function(cb) {
  * @param action Action to execute on the server (= poweron, poweroff, reset)
  * @param cb Callback function to call after the request
  */
-CatC.prototype.powerOp = function(sid, action, cb) {
+CloudAtCost.prototype.powerOp = function(sid, action, cb) {
   this.execute('powerop', { method: 'POST', sid: sid, action: action }, cb);
 };
 
@@ -119,7 +119,7 @@ CatC.prototype.powerOp = function(sid, action, cb) {
  * @param sid Server ID
  * @param cb Callback function to call after the request
  */
-CatC.prototype.console = function(sid, cb) {
+CloudAtCost.prototype.console = function(sid, cb) {
   this.execute('console', { method: 'POST', sid: sid }, cb);
 };
 
@@ -129,7 +129,7 @@ CatC.prototype.console = function(sid, cb) {
  *
  * @param cb Callback function to call after the request
  */
-CatC.prototype.pro_resources = function(cb) {
+CloudAtCost.prototype.pro_resources = function(cb) {
   this.execute('cloudpro/resources', { method: 'GET' }, cb);
 };
 
@@ -139,7 +139,7 @@ CatC.prototype.pro_resources = function(cb) {
  *
  * @param cb Callback function to call after the request
  */
-CatC.prototype.pro_build = function(specs, cb) {
+CloudAtCost.prototype.pro_build = function(specs, cb) {
   this.execute('cloudpro/build', Object.assign({ method: "POST" }, specs), cb);
 };
 
@@ -149,8 +149,8 @@ CatC.prototype.pro_build = function(specs, cb) {
  *
  * @param cb Callback function to call after the request
  */
-CatC.prototype.pro_delete = function(sid, cb) {
+CloudAtCost.prototype.pro_delete = function(sid, cb) {
   this.execute('cloudpro/delete', { sid, method: "POST" }, cb);
 };
 
-module.exports = CatC;
+module.exports = CloudAtCost;

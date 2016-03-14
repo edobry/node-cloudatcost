@@ -1,7 +1,7 @@
 var request = require('request');
 
 var version = "v1";
-var url = "https://panel.cloudatcost.com/api/" + this.version + '/';
+var url = "https://panel.cloudatcost.com/api/" + version + '/';
 
 /*
  * Cloud@Cost API client.
@@ -46,7 +46,7 @@ CloudAtCost.prototype.execute = function(route, params, cb) {
     };
 
     var options = {
-        uri: this.url + route + ".php",
+        uri: url + route + ".php",
         json: true,
         rejectUnauthorized: false,
         [methods[method]]: params,
@@ -54,16 +54,15 @@ CloudAtCost.prototype.execute = function(route, params, cb) {
     };
 
     request(options, function(err, res, body) {
-        if(res.statusCode === 200)
-            cb({ status: res.statusCode }, body);
-        else if(err) {
+        if(err) {
             console.log(err);
             cb({
                 status: err.code && err.code === 'ENETUNREACH'
                     ? "down"
                     : err
             });
-        }
+        } else if(res.statusCode === 200)
+            cb(null, body);
         else
             console.log(res.statusCode, err, body);
     });
